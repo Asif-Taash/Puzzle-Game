@@ -16,7 +16,7 @@ function ikiXiki()
  
 }
 
-window.onload = function dortXdort()
+function dortXdort()
 {
     if(sutun == 4) return;
     deneme = 0;
@@ -133,3 +133,5 @@ function Durma()
     let orijinalResim = document.getElementById("orijinalResim")
     orijinalResim.style.display = "none";
 }
+
+window.onload = dortXdort;
