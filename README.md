@@ -72,10 +72,11 @@ Bu oyun, HTML, CSS ve JavaScript kullanılarak yapılmış etkileşimli bir puzz
 - Kullanıcı deneyimine özen gösterilerek etkileşimler, deneme sayısı ve orijinal resim gösterimi sağlanmıştır.
 
 ## Teknik Notlar
-- Resimlerin aşağıdaki klasör yapısında bulunması gerekir:  
-  - `images/2X2/`  
-  - `images/4X4/`  
-  - `images/8X8/`  
-  ve her seviyeye uygun kesilmiş resimler olmalıdır.  
-- Orijinal resim boyutu 800x800 piksel olmalıdır.  
-- İleride oyun için zaman sayacı, ilerleme kaydetme veya ses efektleri gibi özellikler eklenebilir.
+- Oyun, farklı zorluk seviyeleri için aşağıdaki klasör yapısında kesilmiş görsellere ihtiyaç duyar:  
+  - `images/2X2/`, `images/4X4/`, `images/8X8/`
+- Her klasörde, ilgili seviyeye uygun şekilde bölünmüş kare görselleri yer almalıdır.
+- Orijinal resmin çözünürlüğü **800x800 piksel** olmalıdır; bu, tüm karelerin düzenli ve net görünmesini sağlar.
+- Proje; mevcut haliyle çalışır ve tamamlanmış bir yapı sunar. Ancak istenirse gelecekte aşağıdaki gibi işlevsellikler entegre edilebilir:
+  - Zamanlayıcı (oyun süresi takibi),
+  - Oyun ilerlemesini kaydetme,
+  - Ses efektleri gibi kullanıcı deneyimini artıran özellikler.
