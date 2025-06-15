@@ -71,12 +71,5 @@ Bu oyun, HTML, CSS ve JavaScript kullanılarak yapılmış etkileşimli bir puzz
 - Flexbox ile karelerin düzeni ekran boyutuna göre esnek şekilde ayarlanmıştır.  
 - Kullanıcı deneyimine özen gösterilerek etkileşimler, deneme sayısı ve orijinal resim gösterimi sağlanmıştır.
 
-## Teknik Notlar
-- Oyun, farklı zorluk seviyeleri için aşağıdaki klasör yapısında kesilmiş görsellere ihtiyaç duyar:  
-  - `images/2X2/`, `images/4X4/`, `images/8X8/`
-- Her klasörde, ilgili seviyeye uygun şekilde bölünmüş kare görselleri yer almalıdır.
-- Orijinal resmin çözünürlüğü **800x800 piksel** olmalıdır; bu, tüm karelerin düzenli ve net görünmesini sağlar.
-- Proje; mevcut haliyle çalışır ve tamamlanmış bir yapı sunar. Ancak istenirse gelecekte aşağıdaki gibi işlevsellikler entegre edilebilir:
-  - Zamanlayıcı (oyun süresi takibi),
-  - Oyun ilerlemesini kaydetme,
-  - Ses efektleri gibi kullanıcı deneyimini artıran özellikler.
+## Son Değerlendirme
+Bu proje, sade ama etkili bir yapboz oyunu deneyimi sunmak üzere tasarlanmıştır. Hem teknik altyapısı hem de kullanıcı dostu arayüzüyle, HTML, CSS ve JavaScript kullanılarak hazırlanmış interaktif bir uygulama örneğidir. Öğrenme ve geliştirme sürecinde edinilen bilgi ve becerileri yansıtan bu çalışma, aynı zamanda ileri düzey geliştirmelere de açık bir temel oluşturmaktadır.
