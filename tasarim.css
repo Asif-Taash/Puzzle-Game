@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: rgb(80, 186, 212);
+    text-transform: uppercase;
+    transform: scale(0.6);
+    transform-origin: top;
+}
+#logo{
+    width: 500px;
+    margin: 60px;
+}
+
+#tahta{
+    background-color: rgb(255, 255, 102);
+    width: 800px;
+    height: 800px;
+
+    border: 10px solid;
+    border-radius: 10px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    position: relative;
+
+}
+#tahta #kare
+{
+    width: 800px;
+    height: 800px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    position: relative;
+}
+ #kare img{
+
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 102); 
+    display: block;
+
+}
+#orijinalResimKatmani
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+
+}
+#orijinalResimKatmani #orijinalResim{
+    
+    width: 800px;
+    height: 800px;
+    display: none;
+    
+}
+h1{
+    margin: 60px;
+    font-size: 70px;
+}
+#karistir{
+    background-color: rgb(80, 186, 212);
+    width: 120px;
+    height: 120px;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    line-height: 110px;
+    transition: 0.3s;
+
+}
+#karistir:hover{
+
+    cursor: pointer;
+    color: rgb(255, 255, 102);
+    font-size: 65px;
+    box-shadow: 0px 0px 80px rgb(80, 186, 212);
+}
+#gostermek{
+    background-color: rgb(80, 186, 212);
+    width: 600px;
+    height: 120px;
+    border: 0;
+    border-radius: 20px;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    line-height: 110px;
+    transition: 0.3s;
+    margin-left: 80px;
+}
+#gostermek:hover{
+
+    cursor: pointer;
+    color: rgb(255, 255, 102);
+    font-size: 65px;
+    box-shadow: 0px 0px 80px rgb(80, 186, 212);
+}
+
+#seviyeler button{
+    cursor: pointer;
+    background-color: rgb(80, 186, 212);
+    width: 200px;
+    height: 120px;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    line-height: 110px;
+    transition: 0.3s;
+    margin: 60px;
+}
+#seviyeler button:hover{
+    cursor: pointer;
+    color: rgb(255, 255, 102);
+    font-size: 65px;
+    box-shadow: 0px 0px 80px rgb(80, 186, 212);
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="tasarim.css">
+    <script src="main.js"></script>
+    <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <img id="logo" src="./images/logo.png" >
+    <div id="tahta">
+        <div id= "orijinalResimKatmani">
+            <img src="images/spongebob.jpg" id="orijinalResim">
+        </div>
+        <div id="kare">
+        </div>
+    </div>
+    
+    <h1>Deneme <span id="Deneme">0</span></h1>
+     <button id="karistir" onclick="Karistir()"><i class="fas fa-undo"></i></button>
+    <button id="gostermek" onmousedown="Gosterme()" onmouseup="Durma()" onmouseleave="Durma()">Orijinal Resim</button>
+    <div id="seviyeler">
+        <button id="2x2" onclick="ikiXiki()">2X2</button>
+        <button id="4x4" onclick="dortXdort()">4X4</button>
+        <button id="8x8" onclick="sekizXsekiz()">8X8</button>
+    </div>
+</body>
+</html>
