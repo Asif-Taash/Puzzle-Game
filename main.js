@@ -13,7 +13,6 @@ function ikiXiki()
     document.getElementById("kare").innerHTML = "";
 
    PuzzleOlustur(sutun, satir);
- 
 }
 
 function dortXdort()
@@ -27,7 +26,6 @@ function dortXdort()
     document.getElementById("kare").innerHTML = "";
 
     PuzzleOlustur(sutun, satir);
-
 }
 
 function sekizXsekiz()
@@ -41,26 +39,32 @@ function sekizXsekiz()
     document.getElementById("kare").innerHTML = "";
 
     PuzzleOlustur(sutun, satir);
- 
 }
 
-
-
-function PuzzleOlustur(sutun, satir)
+function PuzzleOlustur(sutun, satir, sira = null)
 {
-    let sira = [];
-    for (let i = 1; i <= sutun * satir; i++) 
+    if (!sira)
     {
-        sira.push(i);
-    }
+        sira = [];
+        for (let i = 1; i <= sutun * satir; i++) 
+        {
+            sira.push(i);
+        }
 
-    for (let i = 0 ; i < sira.length; i++) 
-    {
-        let a = Math.floor(Math.random() * (i + 1));
-        let temp = sira[i];
-        sira[i] = sira[a];
-        sira[a] = temp;
+        for (let i = 0 ; i < sira.length; i++) 
+        {
+            let a = Math.floor(Math.random() * (i + 1));
+            let temp = sira[i];
+            sira[i] = sira[a];
+            sira[a] = temp;
+        }
     }
+    
+    localStorage.setItem("sutun", sutun);
+    localStorage.setItem("satir", satir);
+    localStorage.setItem("deneme", deneme);
+    localStorage.setItem("currentOrder", JSON.stringify(sira));
+
     for (let i = 0; i < satir; i++) 
     {
         for (let j = 0; j < sutun; j++) 
@@ -95,7 +99,6 @@ function PuzzleOlustur(sutun, satir)
         }
     }
 
-
     function dragEnd() 
     {
         if(mevcutKare.src == digerKare.src)
@@ -110,11 +113,23 @@ function PuzzleOlustur(sutun, satir)
 
             deneme += 1;
             document.getElementById("Deneme").innerText = deneme;
-             
+            localStorage.setItem("deneme", deneme);
+
+            const kareler = document.querySelectorAll("#kare img");
+            let yeniSira = [];
+            kareler.forEach(kare => {
+            let src = kare.src;
+            let dosyaAdi = src.substring(src.lastIndexOf("/") + 1, src.lastIndexOf("."));
+            yeniSira.push(parseInt(dosyaAdi));
+            });
+            localStorage.setItem("currentOrder", JSON.stringify(yeniSira));
         }
-    
     }
 }
+
+
+
+
 function Karistir()
 {
     document.getElementById("kare").innerHTML = "";
@@ -122,16 +137,36 @@ function Karistir()
     document.getElementById("Deneme").innerHTML = "0";
     PuzzleOlustur(sutun, satir);
 }
+
 function Gosterme()
 {
-    let orijinalResim = document.getElementById("orijinalResim")
+    let orijinalResim = document.getElementById("orijinalResim");
     orijinalResim.style.display = "block";
 }
 
 function Durma()
 {
-    let orijinalResim = document.getElementById("orijinalResim")
+    let orijinalResim = document.getElementById("orijinalResim");
     orijinalResim.style.display = "none";
 }
 
-window.onload = dortXdort;
+window.onload = function() 
+{
+    let kayitliSutun = localStorage.getItem("sutun");
+    let kayitliSatir = localStorage.getItem("satir");
+    let kayitliDeneme = localStorage.getItem("deneme");
+    let kayitliCurrentOrder = localStorage.getItem("currentOrder");
+
+    if (kayitliSutun && kayitliSatir && kayitliCurrentOrder) 
+    {
+        sutun = parseInt(kayitliSutun);
+        satir = parseInt(kayitliSatir);
+        deneme = parseInt(kayitliDeneme) || 0;
+        document.getElementById("Deneme").innerHTML = deneme;
+        PuzzleOlustur(sutun, satir, JSON.parse(kayitliCurrentOrder));
+    } 
+    else 
+    {
+        dortXdort();
+    }
+}
