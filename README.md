@@ -1,75 +1,87 @@
-# Puzzle-Game
+# Puzzle Game
 
-Bu oyun, HTML, CSS ve JavaScript kullanılarak yapılmış etkileşimli bir puzzle oyunudur. Amaç, karışık şekilde yerleştirilmiş kareleri sürükleyip bırakarak orijinal resmi doğru şekilde yeniden düzenlemektir. Eğlenceli bir oyun olup, odaklanma ve ince motor becerilerini geliştirmeye yardımcı olur.
+Bu proje, HTML, CSS ve JavaScript kullanılarak tarayıcıda çalışan basit bir yapboz oyunudur.  
+Fikir, bir görüntüyü küçük parçalara bölmek ve karışık bir şekilde yerleştirdikten sonra, oyuncunun bu parçaları doğru sırayla yeniden düzenlemesidir. Parçalar sürüklenip bırakılarak yer değiştirilir.
 
-## Oyunun Genel Açıklaması
-- Sayfa açıldığında, oyuncunun seçebileceği 3 seçenekten biriyle (2x2, 4x4 veya 8x8) büyük bir resim (örneğimizde SpongeBob) karelere bölünür.  
-- Her kare, orijinal resmin bir parçasıdır.  
-- Oyun, bu kareleri rastgele karıştırarak başlar ve oyuncu, kareleri doğru sırayla yerleştirmek için bir kareyi sürükleyip diğerinin üzerine bırakmalıdır.  
-- Oyuncunun yaptığı deneme sayısı, üstte "Deneme" kelimesinin yanında gösterilir.  
-- "Karistir" butonu kareleri tekrar karıştırır, "Orijinal Resim" butonuna basılı tutulduğunda ise orijinal resim geçici olarak gösterilir, bırakınca kaybolur.
+## Oyunun Fikri
 
-## Program Bileşenleri Detayları
+- Seçilen bir görsel (şu anda: **Spongebob**) kullanılır.
+- Görsel önceden karelere bölünmüştür (2x2, 4x4 veya 8x8).
+- Oyun başladığında, bu parçalar sayfada rastgele şekilde gösterilir.
+- Kullanıcı herhangi bir parçayı alıp başka bir parçanın üzerine bırakabilir, böylece yerleri değişir.
+- Her iki parça yer değiştirildiğinde bu bir deneme olarak sayılır.
+- Oyuncu, özel bir butona basılı tutarak orijinal resmi görebilir.
+
+## Dosya Açıklamaları
 
 ### 1. HTML Dosyası
-- Sayfanın yapısını belirler:  
-  - Oyunun logosu.  
-  - Puzzle parçalarının göründüğü oyun alanı.  
-  - Geçici gösterilebilen gizli orijinal resim.  
-  - Karıştırma, resmi gösterme ve zorluk seviyesi seçme (2x2, 4x4, 8x8) butonları.
 
-### 2. CSS Dosyası
-- Oyunun tasarımından sorumludur:  
-  - Göze hoş gelen uyumlu renkler seçilmiştir.  
-  - Sabit boyutta, yuvarlatılmış köşeli oyun alanı tasarlanmıştır.  
-  - Butonlar üzerinde fareyle üzerine gelindiğinde renk değişikliği ile kullanıcı deneyimi iyileştirilmiştir.  
-  - Oyunun boyutu, ekran boyutuna göre bozulmadan ayarlanır.
+Kullanıcı arayüzünü içerir.
 
-### 3. JavaScript Dosyası
-- Oyunun mantığını içerir:
+İçindekiler:
+- Logo görseli
+- Yapbozun gösterildiği alan (`#kare` içinde)
+- Seviye değiştirme butonları (2x2, 4x4, 8x8)
+- Orijinal resmi gösterme butonu
+- Yapbozu karıştırma butonu
+- Deneme sayısını gösteren sayaç
 
-#### Temel Değişkenler:
-- `sutun` ve `satir`: Puzzle’ın sütun ve satır sayısını (kare sayısını) tutar.  
-- `mevcutKare` ve `digerKare`: Sürüklenen ve bırakılan kareleri takip eder.  
-- `deneme`: Oyuncunun yaptığı deneme sayısını sayar.
+---
 
-#### Oyun Kurma Fonksiyonları:
-- `ikiXiki()`, `dortXdort()`, `sekizXsekiz()`: Her biri oyunun zorluk seviyesini belirler ve yeni bir puzzle oluşturur.  
-- `PuzzleOlustur(sutun, satir)`:  
-  - Kareleri temsil eden sayılar listesi oluşturur (1’den kare sayısına kadar).  
-  - Bu listeyi rastgele karıştırır.  
-  - Her kare için uygun resim parçası `<img>` elementi oluşturur.  
-  - Karelerin boyutunu sütun ve satır sayısına göre ayarlar.  
-  - Sürükle-bırak olaylarını (`dragstart`, `dragover`, `drop`, `dragend`) dinleyerek karelerin yer değiştirmesine izin verir.
+### 2. JavaScript Dosyası
 
-#### Sürükle ve Bırak İşleyişi:
-- `dragstart`: Sürüklenen kare kaydedilir.  
-- `drop`: Bırakılan hedef kare kaydedilir.  
-- `dragend`: İki karenin resimleri değiştirilir (aynı kare değilse).  
-- Her değişiklikten sonra deneme sayısı artırılır ve ekranda güncellenir.
+Oyunun tüm mantığını içerir.
 
-#### Ek Fonksiyonlar:
-- `Karistir()`: Kareleri yeniden karıştırır ve deneme sayısını sıfırlar.  
-- `Gosterme()` ve `Durma()`: "Orijinal Resim" butonuna basılı tutulduğunda resmi gösterir, bırakınca gizler.
+#### Temel Değişkenler
 
-## Oyunun Kullanımı
-1. HTML dosyasını modern bir tarayıcıda (Chrome, Firefox, Edge) açın.  
-2. Oyun otomatik olarak 4x4 seviyesinde başlar.  
-3. Kare sayısını değiştirmek için seviye butonlarını kullanın:  
-   - 2x2: Başlangıç için büyük kareler.  
-   - 4x4: Orta seviye.  
-   - 8x8: Uzman seviyesi, küçük ve çok kare.  
-4. Bir kareyi sürükleyip başka bir karenin üzerine bırakın.  
-5. Deneme sayısı üstte "Deneme" yanında gösterilir.  
-6. İsterseniz "Karistir" butonuna basarak karışımı yenileyebilirsiniz.  
-7. "Orijinal Resim" butonuna basılı tutarak resmi tam olarak görebilirsiniz.  
-8. Amaç, kareleri en az denemeyle doğru sıraya getirmektir.
+- `sutun` ve `satir`: Seçilen seviyeye göre satır ve sütun sayısını belirler.
+- `mevcutKare` ve `digerKare`: Sürükleme sırasında seçilen iki kareyi tutar.
+- `deneme`: Yapılan hamle sayısını sayar.
 
-## Oyunun Yapılışı
-- Resmi karelere bölüp, her kareyi ayrı bir resim olarak kullanarak basit ve klasik bir puzzle yöntemi uygulanmıştır.  
-- DOM olayları kullanılarak sürükle bırak fonksiyonu gerçekleştirilmiştir.  
-- Flexbox ile karelerin düzeni ekran boyutuna göre esnek şekilde ayarlanmıştır.  
-- Kullanıcı deneyimine özen gösterilerek etkileşimler, deneme sayısı ve orijinal resim gösterimi sağlanmıştır.
+#### Önemli Fonksiyonlar
 
-## Son Değerlendirme
-Bu proje, sade ama etkili bir yapboz oyunu deneyimi sunmak üzere tasarlanmıştır. Hem teknik altyapısı hem de kullanıcı dostu arayüzüyle, HTML, CSS ve JavaScript kullanılarak hazırlanmış interaktif bir uygulama örneğidir. Öğrenme ve geliştirme sürecinde edinilen bilgi ve becerileri yansıtan bu çalışma, aynı zamanda ileri düzey geliştirmelere de açık bir temel oluşturmaktadır.
+- `ikiXiki`, `dortXdort`, `sekizXsekiz`:  
+  Yapbozun büyüklüğünü (parça sayısını) belirler. Her biri `sutun` ve `satir` değerlerini ayarlar.
+
+- `PuzzleOlustur(sutun, satir, sira = null)`:  
+  Satır ve sütun sayısına göre yapbozu oluşturur.  
+  Belirli bir sıra verilmemişse, parçalar karıştırılır ve bu sıra `localStorage`'a kaydedilir.  
+  Bu fonksiyon, `#kare` içine `<img>` elemanları ekler ve her birine uygun parça resmini yükler.  
+  Aynı zamanda `dragstart`, `drop`, `dragend` gibi olayları tanımlar ve sürükle bırak işlevini sağlar.
+
+- `Karistir()`:  
+  Deneme sayısını sıfırlar ve parçaları yeniden karıştırır.
+
+- `Gosterme()` / `Durma()`:  
+  Özel butona basıldığında orijinal resmi geçici olarak gösterir veya gizler.
+
+- `window.onload`:  
+  Sayfa açıldığında `localStorage` içinden son ayarlar alınır (seviye, denemeler, sıra).  
+  Eğer veri yoksa oyun 4x4 seviyesinde başlatılır.
+
+### 3. CSS Dosyası
+
+Sayfa düzenlemeleri bu dosyada yapılmıştır.
+
+- Açık renkler ve sade bir tasarım tercih edilmiştir.
+- Parçaların boyutu seviyeye göre belirlenir:
+  - 2x2 = her parça **400x400** piksel
+  - 4x4 = her parça **200x200** piksel
+  - 8x8 = her parça **100x100** piksel
+- Butonlara fareyle gelindiğinde etkileşimli animasyonlar gösterilir.
+
+## Kullanım Talimatları
+
+1. Dosyaları bilgisayarınıza indirin.
+2. `index.html` dosyasını tarayıcıda açın.
+3. Oynamak istediğiniz seviyeyi seçin.
+4. Parçaları sürükleyerek doğru sıralamaya getirin.
+5. Yardıma ihtiyaç duyarsanız **"Orijinal Resim"** butonuna basılı tutun.
+6. Oyunu sıfırlamak için **"Karıştır"** butonuna tıklayın.
+7. Oyun verileri `localStorage` ile otomatik olarak kaydedilir.
+
+## Ek Notlar
+
+- Kullanılan görseller önceden parçalanmıştır. Yeni bir resim eklemek isterseniz, onu manuel olarak uygun parçalara bölüp örneğin `images/4X4` klasörüne yerleştirmeniz gerekir.
+- Bu projede şu anda kazanma kontrolü (resmin tamamlandığına dair bir denetim) bulunmamaktadır. Fakat istenirse, parçaların sırası kontrol edilerek bu özellik eklenebilir.
+- Kodun anlaşılabilir olması için sadece basit yapılar kullanılmıştır. Harici kütüphaneler veya derleyiciler kullanılmamıştır.
